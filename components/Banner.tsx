@@ -26,7 +26,6 @@ const Banner = ({ netflixOriginals }: Props) => {
                     src={ `${ baseUrl }${ movie?.backdrop_path || movie?.poster_path }` } 
                     layout="fill"
                     objectFit="cover"
-                    priority="true"
                 />
             </div>
             <h1 className="text-2xl font-bold lg:text-7xl md:text-4xl">{ movie?.title || movie?.name || movie?.original_name }</h1>
