@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { SearchIcon, BellIcon } from '@heroicons/react/solid'
+import useAuth from '../hooks/useAuth'
 
 
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false)
+    const {logout} = useAuth()
 
     useEffect(() => {
         const handleScroll = () => {
@@ -26,9 +28,9 @@ const Header = () => {
 		<header className={`${isScrolled && 'bg-[#141414]'}`}>
             <div className="flex item-centered space-x-2 md:space-x-10">
                 <img
-                    src="zeeflix.svg"
+                    src="/zeeflix.svg"
                     width={100}
-                    height={50}
+                    height={30}
                     className="cursor-pointer object-contain"
                 />
 
@@ -45,13 +47,14 @@ const Header = () => {
                 <SearchIcon className="hidden h-6 w-6 sm:inline" />
                 <p className="hidden lg:inline">Kids</p>
                 <BellIcon className="h-6 w-6" />
-                <Link href="/account">
+                {/* <Link href="/account"> */}
                     <img
+                        onClick={logout}
                         src="https://rb.gy/g1pwyx"
                         alt=""
                         className="cursor-pointer rounded"
                     />
-                </Link>
+                {/* </Link> */}
             </div>
         </header>
 	)

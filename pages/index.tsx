@@ -5,6 +5,7 @@ import requests from '../utils/requests'
 import Header from '../components/Header'
 import Banner from '../components/Banner'
 import MovieRow from '../components/MovieRow'
+import useAuth from '../hooks/useAuth'
 
 
 interface Props {
@@ -28,10 +29,14 @@ const Home = ({
     topRated,
     trendingNow,
  }: Props ) => {
+    const {logout, loading} = useAuth()
+
+    if (loading) return null // loading
+
 	return (
 		<div className="relative h-screen bg-gradient-to-b lg:h-[140vh]">
 			<Head>
-				<title>Home - Nextflix</title>
+				<title>Home - Zeeflix</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Header />
