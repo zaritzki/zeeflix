@@ -1,14 +1,18 @@
-import '../styles/globals.css'
 import type { AppProps } from 'next/app'
+import { RecoilRoot } from 'recoil'
 import { AuthProvider } from '../hooks/useAuth'
 
-function MyApp({ Component, pageProps }: AppProps) {
+import '../styles/globals.css'
+
+function ZeeflixApp({ Component, pageProps }: AppProps) {
 	return (
-		// HOC - Higher-Order Components
-		<AuthProvider>
-			<Component {...pageProps} />
-		</AuthProvider> 
+		<RecoilRoot>
+			{/* HOC - Higher-Order Components */}
+			<AuthProvider>
+				<Component {...pageProps} />
+			</AuthProvider> 
+		</RecoilRoot>
 	)
 }
 
-export default MyApp
+export default ZeeflixApp

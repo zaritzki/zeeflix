@@ -1,8 +1,10 @@
 ## ZEEFLIX
 
 A Netflix clone using Full-stack NextJS and Typescript.
-* Tailwind CSS. 
+* Tailwind CSS
+* Material UI
 * Authentication with Firebase v9
+* Recoil for Stage Management
 * TMDB API.
 
 
