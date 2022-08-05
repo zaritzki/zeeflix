@@ -37,7 +37,7 @@ const Home = ({
     if (loading) return null // loading
 
 	return (
-		<div className="relative h-screen bg-gradient-to-b lg:h-[140vh]">
+		<div className={`relative h-screen bg-gradient-to-b lg:h-[140vh] ${showModal && '!h-screen overflow-hidden'}`}>
 			<Head>
 				<title>Home - Zeeflix</title>
 				<link rel="icon" href="/favicon.ico" />
