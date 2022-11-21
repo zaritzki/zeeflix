@@ -29,11 +29,12 @@ const Header = () => {
             <div className="flex item-centered space-x-2 md:space-x-10">
                 <img
                     src="/zeeflix.svg"
+                    alt="zeeflix"
                     width={100}
                     height={30}
                     className="cursor-pointer object-contain"
                 />
-
+ 
                 <ul className="hidden space-x-4 md:flex">
                     <li className="headerLink">Home</li>
                     <li className="headerLink">TV Shows</li>

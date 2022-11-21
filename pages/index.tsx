@@ -8,6 +8,7 @@ import Header from '../components/Header'
 import Banner from '../components/Banner'
 import MovieRow from '../components/MovieRow'
 import Modal from '../components/Modal'
+import Plans from '../components/Plans'
 
 interface Props {
     netflixOriginals: Movie[]
@@ -30,11 +31,13 @@ const Home = ({
     topRated,
     trendingNow,
  }: Props ) => {
-    const {logout, loading} = useAuth()
-    
+    const { loading} = useAuth()
     const showModal = useRecoilValue(modalState)
+    const subscription = false
 
-    if (loading) return null // loading
+    if (loading || subscription === null) return null
+
+    if (!subscription) return <Plans />
 
 	return (
 		<div className={`relative h-screen bg-gradient-to-b lg:h-[140vh] ${showModal && '!h-screen overflow-hidden'}`}>
