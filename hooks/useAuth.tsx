@@ -103,9 +103,9 @@ export const AuthProvider = ({children}: AuthProviderProps) => {
             .finally(() => setLoading(false))
     }
 
-    const memoedValue = useMemo(() => ({
-        user, signUp, signIn, logout, loading, error
-    }), [user, loading])
+    const memoedValue = useMemo(
+        () => ({user, signUp, signIn, logout, loading, error}),
+        [user, loading])
 
     return (
         <AuthContext.Provider value={memoedValue}>
