@@ -3,7 +3,7 @@ import useAuth from '../hooks/useAuth'
 import useSubscription from '../hooks/useSubscription'
 import { getProducts, Product } from '@stripe/firestore-stripe-payments'
 import { useRecoilValue } from 'recoil'
-import { modalState } from '../atoms/modalAtom'
+import { modalState, movieState } from '../atoms/modalAtom'
 import { Movie } from '../typings'
 import requests from '../utils/requests'
 import payments from '../lib/stripe'
@@ -12,6 +12,7 @@ import Banner from '../components/Banner'
 import MovieRow from '../components/MovieRow'
 import Modal from '../components/Modal'
 import Plans from '../components/Plans'
+import useLists from '../hooks/useLists'
 
 
 interface Props {
@@ -38,8 +39,10 @@ const Home = ({
     trendingNow,
  }: Props ) => {
     const { loading, user } = useAuth()
-    const showModal = useRecoilValue(modalState)
     const subscription = useSubscription(user)
+    const lists = useLists(user?.uid)
+    const movie = useRecoilValue(movieState)
+    const showModal = useRecoilValue(modalState)
 
     if (!user || loading || subscription === null) return null
 
@@ -47,8 +50,8 @@ const Home = ({
 
 	return (
 		<div className={`relative h-screen bg-gradient-to-b lg:h-[140vh] ${showModal && '!h-screen overflow-hidden'}`}>
-			<Head>
-				<title>ZEEFLIX</title>
+			<Head> 
+				<title>{movie?.title || movie?.original_name || 'Home'} - ZEEFLIX</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Header />
@@ -57,15 +60,18 @@ const Home = ({
 				<section className="md:space-y-24">
 					<MovieRow title="Trending Now" movies={trendingNow} />
                     <MovieRow title="Top Rated" movies={topRated} />
-                    <MovieRow title="Action Thrillers" movies={actionMovies} />
+                    
                     {/* My Lists */}
+                    {lists.length > 0 && <MovieRow title="My Lists" movies={lists} />}
+
+                    <MovieRow title="Action Thrillers" movies={actionMovies} />
                     <MovieRow title="Comedies" movies={comedyMovies} />
                     <MovieRow title="Scary Movies" movies={horrorMovies} />
                     <MovieRow title="Romance Movies" movies={romanceMovies} />
                     <MovieRow title="Documentaries" movies={documentaries} />
 				</section>
 			</main>
-			{modalState && <Modal />}
+			{showModal && <Modal />}
 		</div>
 	)
 }

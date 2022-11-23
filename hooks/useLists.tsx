@@ -10,7 +10,7 @@ import { Movie } from "../typings"
         if (!uid) return
 
         return onSnapshot(
-            collection(db, "customer", uid, "myList"),
+            collection(db, "customers", uid, "myList"),
             (snapshot) => {
                 setList(
                     snapshot.docs.map((doc) => ({
