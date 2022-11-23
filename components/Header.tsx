@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { SearchIcon, BellIcon } from '@heroicons/react/solid'
 import useAuth from '../hooks/useAuth'
 
+import BasicMenu from './BasicMenu'
+
 
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false)
@@ -34,6 +36,8 @@ const Header = () => {
                     height={30}
                     className="cursor-pointer object-contain"
                 />
+
+                <BasicMenu />
  
                 <ul className="hidden space-x-4 md:flex">
                     <li className="headerLink">Home</li>

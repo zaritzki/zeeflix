@@ -87,7 +87,7 @@ const login = () => {
 				</button>
 				
 				<div className="text-[gray]">
-					New to Zeeflix?{' '}
+					New to ZEEFLIX?{' '}
 					<button 
 						onClick={() => setLogin(false)}
 						type="submit"
