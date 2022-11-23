@@ -8,12 +8,11 @@ import { Movie } from '../typings'
 import requests from '../utils/requests'
 import payments from '../lib/stripe'
 import Header from '../components/Header'
-import Banner from '../components/Banner'
+import Banner from '../components/Banner' 
 import MovieRow from '../components/MovieRow'
 import Modal from '../components/Modal'
 import Plans from '../components/Plans'
 import useLists from '../hooks/useLists'
-
 
 interface Props {
     actionMovies: Movie[]

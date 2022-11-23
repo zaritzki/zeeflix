@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app'
-import { RecoilRoot } from 'recoil'
 import { AuthProvider } from '../hooks/useAuth'
+import { RecoilRoot } from 'recoil'
 
 import '../styles/globals.css'
 

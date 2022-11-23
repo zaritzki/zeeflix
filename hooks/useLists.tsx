@@ -4,7 +4,7 @@ import { db } from "../firebase"
 import { Movie } from "../typings"
 
  const useLists = (uid: string | undefined) => {
-    const [list, setList] = useState<Movie[] | DocumentData>([])
+    const [list, setList] = useState<DocumentData[] | Movie[]>([])
 
     useEffect(() => {
         if (!uid) return
