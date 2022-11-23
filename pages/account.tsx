@@ -23,8 +23,18 @@ const account = ({ plans }: Props) => {
     return (
         <>
             <Head>
+                <meta
+					name="viewport"
+					content="width=device-width, initial-scale=1 maximum-scale=1"
+				/>
+                <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 				<title>Account Settings - ZEEFLIX</title>
-				<link rel="icon" href="/favicon.ico" /> 
+                <meta name="robots" content="noindex, nofollow" />
+				<meta name="keywords" content="web design, web development, ecommerce website, wordpress, web developer, front-end developer" />
+				<meta name="author" content="dotzar" />
+				<link rel="manifest" href="/manifest.json" />
+				<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+				<link rel="apple-touch-icon" href="/favicon.png" />
 			</Head>
 
             <header className="border-b border-white/10 bg-[#141414]">

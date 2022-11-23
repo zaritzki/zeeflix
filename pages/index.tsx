@@ -50,8 +50,18 @@ const Home = ({
 	return (
 		<div className={`relative h-screen bg-gradient-to-b lg:h-[140vh] ${showModal && '!h-screen overflow-hidden'}`}>
 			<Head> 
+				<meta
+					name="viewport"
+					content="width=device-width, initial-scale=1 maximum-scale=1"
+				/>
+                <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 				<title>{movie?.title || movie?.original_name || 'Home'} - ZEEFLIX</title>
-				<link rel="icon" href="/favicon.ico" />
+                <meta name="robots" content="noindex, nofollow" />
+				<meta name="keywords" content="web design, web development, ecommerce website, wordpress, web developer, front-end developer" />
+				<meta name="author" content="dotzar" />
+				<link rel="manifest" href="/manifest.json" />
+				<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+				<link rel="apple-touch-icon" href="/favicon.png" />
 			</Head>
 			<Header />
 			<main className="relative pl-4 pb-24 lg:space-y-24 lg:pl-16">
